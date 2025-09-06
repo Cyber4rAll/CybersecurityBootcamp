@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L2 Incident Response, Business Continuity and Disaster Recovery Concepts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .slide {
+            transition: opacity 0.5s ease-in-out;
+            min-height: 500px;
+        }
+        .slide:not(.active) {
+            opacity: 0;
+            display: none;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+            list-style-position: outside;
+        }
+        ul li, ol li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Presentation Container -->
+    <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
+        
+        <!-- Slides -->
+        <div id="slides-container" class="relative w-full h-full">
+
+            <!-- Slide 1: Title and Introduction -->
+            <div id="slide-1" class="slide active">
+                <div class="py-16">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-2 tracking-tight">
+                        Incident Response, Business Continuity & Disaster Recovery
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-semibold text-gray-600 mb-8">
+                        Planning for the Unexpected
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        When we're talking about IR, BC, and DR, we're focusing on <strong>availability</strong>, which is accomplished through these concepts.
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><strong>Incident Response (IR) plan:</strong> responds to unexpected changes in operating conditions to keep the business operating.</li>
+                        <li><strong>Business Continuity (BC) plan:</strong> enables the business to continue operating throughout the crisis.</li>
+                        <li><strong>Disaster Recovery (DR) plan:</strong> is activated to help the business to return to normal operations as quickly as possible, if Incident Response and Business Continuity plans fail.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 2: Incident Terminology (Part 1) -->
+            <div id="slide-2" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 1: Incident Terminology</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Key Terms (1/2)</h3>
+                    <div class="text-lg text-gray-700 leading-relaxed space-y-4">
+                        <p><strong>Breach:</strong> The <strong>loss of</strong> control, compromise, unauthorized disclosure, unauthorized acquisition, or <strong>any similar occurrence</strong> where: <strong>a person other than an authorized user accesses or potentially accesses personally identifiable information</strong>.</p>
+                        <p><strong>Event:</strong> <strong>Any observable occurrence</strong> in a network or system.</p>
+                        <p><strong>Exploit:</strong> <strong>A particular attack</strong>. It is named this way because <strong>these attacks exploit system vulnerabilities</strong>.</p>
+                        <p><strong>Incident:</strong> <strong>An event that actually or potentially jeopardizes</strong> the confidentiality, integrity or availability of an information system.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Incident Terminology (Part 2) -->
+            <div id="slide-3" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 1: Incident Terminology</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Key Terms (2/2)</h3>
+                    <div class="text-lg text-gray-700 leading-relaxed space-y-4">
+                        <p><strong>Intrusion:</strong> A security event in which an intruder gains, or attempts to gain, access to a system without authorization.</p>
+                        <p><strong>Threat:</strong> <strong>Any circumstance or event with the potential to adversely impact organizational operations</strong> through unauthorized access, destruction, disclosure, etc.</p>
+                        <p><strong>Vulnerability:</strong> <strong>Weakness</strong> in a system that could be exploited by a threat source.</p>
+                        <p><strong>Zero Day:</strong> <strong>A previously unknown system vulnerability with the potential of exploitation without risk of detection or prevention</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: The Goal of Incident Response -->
+            <div id="slide-4" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">The Goal of Incident Response</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The priority of any incident response is to protect life, health, and safety. When any decision related to priorities is to be made, <strong>always choose safety first</strong>.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The primary goal is to be prepared. Preparation requires having a policy and a response plan that will <strong>lead the organization through the crisis</strong>. <strong>Every organization must have an incident response plan that will help preserve business viability and survival</strong>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 5: Components of the IR Plan (Part 1) -->
+            <div id="slide-5" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Components of the IR Plan</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Preparation</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The incident response policy should reference <strong>an incident response plan</strong> that all employees will follow.
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-2">
+                        <li>Develop a policy approved by management.</li>
+                        <li><strong>Identify critical data and systems</strong>, <strong>single points of failure</strong>.</li>
+                        <li><strong>Train staff on incident response</strong>; Implement an incident response team.</li>
+                        <li>Plan the coordination of communication between stakeholders.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 6: Components of the IR Plan (Part 2) -->
+            <div id="slide-6" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Components of the IR Plan</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Response Stages</h3>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><strong>Detection and Analysis:</strong> Monitor all possible attack vectors; Analyze incident using known data and threat intelligence.</li>
+                        <li><strong>Containment, Eradication, and Recovery:</strong> Gather evidence; Choose an appropriate containment strategy; Isolate the attack.</li>
+                        <li><strong>Post-incident Activity:</strong> Identify evidence that may need to be retained. Document lessons learned.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 7: Incident Response Team -->
+            <div id="slide-7" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Incident Response Team</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Key Members & Responsibilities</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        A cross-functional group of individuals to represent various areas of the organization.
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-2">
+                        <li>Senior management, information security, legal, public affairs, and engineering representatives.</li>
+                        <li>Responsibilities include: determining damage, identifying compromised information, implementing recovery procedures, and supervising additional security measures.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 8: Understand Business Continuity (BC) -->
+            <div id="slide-8" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 2: Business Continuity</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">The Importance of Business Continuity</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The intent of a <strong>business continuity plan</strong> is <strong>to sustain business operations while recovering from a significant disruption</strong>.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        A key part of the plan is <strong>communication</strong>. <strong>Management must be included</strong>. <strong>We need to have at hand the critical contact numbers for the supply chain</strong>, as well as law enforcement and other sites outside of the facility.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 9: Components of BCP -->
+            <div id="slide-9" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Components of a BCP</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <strong>Business continuity planning (BCP)</strong> is the <strong>proactive development of procedures to restore business operations after a disaster</strong>.
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-2">
+                        <li>List of BCP team members and contact methods.</li>
+                        <li>Immediate response procedures and checklists.</li>
+                        <li>Notification systems and call trees.</li>
+                        <li>Guidance for management and how/when to enact the plan.</li>
+                        <li>Contact numbers for critical members of the supply chain.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 10: Understand Disaster Recovery (DR) -->
+            <div id="slide-10" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 3: Disaster Recovery</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">The Goal of Disaster Recovery</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Disaster recovery planning <strong>steps in where BC leaves off</strong>. The DRP guides actions <strong>until the end goal is reached—which is to see the business restored to full last-known reliable operations</strong>.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Disaster recovery refers specifically to <strong>restoring the information technology and communications services and systems needed by an organization</strong>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 11: Components of DRP -->
+            <div id="slide-11" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Components of a DRP</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-2">
+                        <li>Executive summary providing a high-level overview.</li>
+                        <li>Department-specific plans and technical guides for IT personnel.</li>
+                        <li>Full copies of the plan for critical team members.</li>
+                        <li>Checklists for certain individuals.</li>
+                        <li>Public relations should be a member of the DRP.</li>
+                        <li>IT Personnel are primarily responsible for the disaster recovery team.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex justify-between w-full mt-8">
+            <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                Previous
+            </button>
+            <div id="slide-counter" class="text-lg font-medium text-gray-500 flex items-center">
+                Slide 1 of 11
+            </div>
+            <button id="next-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Next
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            let currentSlideIndex = 0;
+
+            function updateSlide() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                updateSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+
+            // Initial setup
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
