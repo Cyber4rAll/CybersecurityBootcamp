@@ -33,6 +33,11 @@
     <!-- Presentation Container -->
     <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
         
+        <!-- Home Button -->
+        <button id="home-btn" class="absolute top-4 left-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+            Home
+        </button>
+
         <!-- Slides -->
         <div id="slides-container" class="relative w-full h-full">
 
@@ -138,16 +143,10 @@
                     <h2 class="text-3xl font-bold text-blue-700 mb-4">Bus & Ring Topologies</h2>
                     <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
                         <li>
-                            <p><strong>Bus</strong> - devices are connected in a line. All messages are transmitted to all devices on the network. It’s an inexpensive topology, but it can be difficult to manage and reconfigure. 
-
-[Image of Bus Network Topology]
-</p>
+                            <p><strong>Bus</strong> - devices are connected in a line. All messages are transmitted to all devices on the network. It’s an inexpensive topology, but it can be difficult to manage and reconfigure. </p>
                         </li>
                         <li>
-                            <p><strong>Ring</strong> - In this topology, devices are connected in a circle and messages are passed from one device to the next in order. The main benefit is that it is easy to set up. A main disadvantage is that if one device fails, the whole network can go down. 
-
-[Image of Ring Network Topology]
-</p>
+                            <p><strong>Ring</strong> - In this topology, devices are connected in a circle and messages are passed from one device to the next in order. The main benefit is that it is easy to set up. A main disadvantage is that if one device fails, the whole network can go down. </p>
                         </li>
                     </ul>
                 </div>
@@ -159,10 +158,7 @@
                     <h2 class="text-3xl font-bold text-blue-700 mb-4">Star & Mesh Topologies</h2>
                     <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
                         <li>
-                            <p><strong>Star</strong> - In this topology, all devices are connected to a central device. The main benefit is that it is the most reliable network topology because if one device fails, the rest of the network continues to operate. 
-
-[Image of Star Network Topology]
-</p>
+                            <p><strong>Star</strong> - In this topology, all devices are connected to a central device. The main benefit is that it is the most reliable network topology because if one device fails, the rest of the network continues to operate. </p>
                         </li>
                         <li>
                             <p><strong>Mesh</strong> - In this topology, every device is connected to every other device on the network. The main advantage is that it is extremely reliable as there is no single point of failure. The main disadvantage is that it is very expensive to set up. </p>
@@ -227,6 +223,7 @@
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
+            const homeBtn = document.getElementById('home-btn');
             const slideCounter = document.getElementById('slide-counter');
             let currentSlideIndex = 0;
 
@@ -248,6 +245,11 @@
 
             prevBtn.addEventListener('click', () => {
                 currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+
+            homeBtn.addEventListener('click', () => {
+                currentSlideIndex = 0;
                 updateSlide();
             });
 
