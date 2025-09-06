@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Threats and Defenses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            transition: background-color 0.5s;
+        }
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-color: #f0f4f8;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+        p, ul, li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        .text-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .navigation-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            background-color: #4c51bf;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .nav-btn:disabled {
+            background-color: #cbd5e0;
+            cursor: not-allowed;
+        }
+        .nav-btn:hover:enabled {
+            transform: translateY(-2px);
+            background-color: #5a63c6;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .grid-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        .grid-item p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .grid-item ul {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #2d3748;
+            color: white;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+        .slide-content-wrapper {
+            max-width: 80%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            font-size: 1rem;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        th {
+            background-color: #4c51bf;
+            color: white;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-button">Home</a>
+
+    <!-- Slides -->
+    <!-- Slide 1: Title Slide -->
+    <div id="slide1" class="slide active">
+        <div class="slide-content-wrapper">
+            <h1 class="text-6xl font-extrabold text-blue-800 animate-pulse">Network Threats and Attacks</h1>
+            <p class="mt-4 text-2xl text-gray-700">Understanding Network Defenses</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Types of Threats (Part 1) -->
+    <div id="slide2" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Types of Threats</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Spoofing</h3>
+                    <p>An attack that uses a falsified identity to gain access to a system.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Phishing</h3>
+                    <p>An attack that tricks users into visiting malicious websites, often through fake emails or links.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>DoS/DDoS</h3>
+                    <p>A denial-of-service attack that prevents legitimate users from accessing a system. DDoS attacks use multiple systems to launch the attack.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Malware</h3>
+                    <p>A program intended to compromise the confidentiality, integrity, or availability of a system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Types of Threats (Part 2) -->
+    <div id="slide3" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Malware and Other Threats</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Virus</h3>
+                    <p>A self-replicating code that spreads with the user's assistance (e.g., clicking a link).</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Worm</h3>
+                    <p>A self-replicating code that spreads without any human intervention.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Trojan</h3>
+                    <p>A seemingly harmless program that carries a malicious payload, like ransomware, which encrypts files for a ransom.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>On-path (MITM) Attack</h3>
+                    <p>An attack where the attacker places themselves between two devices to intercept or modify communication.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Advanced Threats -->
+    <div id="slide4" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Advanced and Insider Threats</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Side-channel</h3>
+                    <p>A passive, non-invasive attack that observes a device's operation (e.g., by monitoring power consumption).</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Advanced Persistent Threat (APT)</h3>
+                    <p>A highly sophisticated and long-term attack carried out by organized groups.</p>
+                </div>
+                <div class="grid-item col-span-2">
+                    <h3>Insider Threat</h3>
+                    <p>A threat that originates from individuals who are trusted by the organization, such as disgruntled employees or victims of a scam.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Threat Prevention Tools -->
+    <div id="slide5" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Identifying and Preventing Threats</h2>
+            <p>Various tools can be used to protect networks. Some can only identify threats, while others can prevent them from happening. It's always best practice to not run unneeded services to reduce the attack surface.</p>
+            <ul class="list-disc text-left mx-auto mt-4">
+                <li><b>Identify Threats Only:</b> IDS, HIDS, NIDS, SIEM, Scans</li>
+                <li><b>Identify and Prevent Threats:</b> Anti-malware/Antivirus, Firewall, IPS (NIPS/HIPS)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6: Intrusion Detection Systems (IDS) -->
+    <div id="slide6" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Intrusion Detection System (IDS)</h2>
+            <p>An IDS is a monitoring tool that inspects logs and real-time events to detect abnormal activity, such as intrusion attempts. It is a key part of a defense-in-depth strategy. 
+
+[Image of IDS diagram]
+</p>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Host-based IDS (HIDS)</h3>
+                    <p>Monitors a single computer. It can examine events in great detail and pinpoint specific files compromised in an attack. It's more costly to manage per system.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Network-based IDS (NIDS)</h3>
+                    <p>Monitors and evaluates network activity. A single NIDS can monitor a large network and has little effect on overall performance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: SIEM -->
+    <div id="slide7" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Security Information and Event Management (SIEM)</h2>
+            <p>A SIEM solution collects log data from various sources across an entire enterprise. The goal is to gain a better overall understanding of security concerns and streamline security efforts. It helps to correlate events from different systems to identify potential attacks that might otherwise be missed.</p>
+        </div>
+    </div>
+
+    <!-- Slide 8: Intrusion Prevention Systems (IPS) -->
+    <div id="slide8" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Intrusion Prevention System (IPS)</h2>
+            <p>An IPS is a special type of active IDS that automatically attempts to detect and block attacks before they reach target systems. The key difference is that an IPS is placed in-line with the traffic, allowing it to actively stop malicious packets. This function is often integrated into firewalls. </p>
+        </div>
+    </div>
+
+    <!-- Slide 9: Firewalls -->
+    <div id="slide9" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Firewalls</h2>
+            <p>Firewalls act as a barrier to enforce security policies by filtering network traffic based on a set of rules. They can be network-based, protecting entire networks, or host-based, protecting a single system. Modern firewalls, often called Next-Generation (NG) Firewalls, integrate a variety of threat management capabilities into a single framework.</p>
+            <ul class="list-disc text-left mx-auto mt-4">
+                <li><b>Traditional Firewalls:</b> Filter traffic at Layers 2, 3, and 4 (MAC, IP, and Ports).</li>
+                <li><b>NG Firewalls:</b> Add filtering based on user identity, antivirus, and application-level control.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 10: Antivirus and Scans -->
+    <div id="slide10" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Antivirus and Scans</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Anti-malware/Antivirus</h3>
+                    <p>Identifies malicious software based on known signatures or by detecting abnormal activity. Modern solutions provide a more holistic approach, protecting against viruses, ransomware, and spyware.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Scans</h3>
+                    <p>Regular vulnerability and port scans evaluate the effectiveness of security controls. They help identify areas where patches or security settings are insufficient, revealing vulnerabilities before attackers can exploit them.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Final Slide -->
+    <div id="slide11" class="slide">
+        <div class="slide-content-wrapper">
+            <h2 class="text-5xl font-extrabold text-blue-800">You're All Set!</h2>
+            <p class="mt-4 text-2xl text-gray-700">Understanding these threats and defenses is key to building a secure network.</p>
+            <p class="mt-4 text-2xl text-gray-700">If you want to review any of these topics in more detail, just let me know.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <button id="prevBtn" class="nav-btn">Previous</button>
+        <button id="nextBtn" class="nav-btn">Next</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            updateButtons();
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
