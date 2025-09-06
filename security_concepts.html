@@ -30,9 +30,14 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
+    <!-- Home Button at the Top Left -->
+    <a href="index.html" class="absolute top-4 left-4 z-10 bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+        Home
+    </a>
+
     <!-- Presentation Container -->
     <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
-        
+
         <!-- Slides -->
         <div id="slides-container" class="relative w-full h-full">
 
@@ -49,7 +54,7 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-4">The CIA Triad</h2>
                     <p class="text-lg text-gray-700 leading-relaxed">
-                        The **Confidentiality, Integrity, and Availability** (CIA) Triad are the three main goals of information security. They are a model for the development of security policies.
+                        The <strong>Confidentiality, Integrity, and Availability</strong> (CIA) Triad are the three main goals of information security. They are a model for the development of security policies.
                     </p>
                 </div>
             </div>
@@ -59,12 +64,12 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-4">Confidentiality</h2>
                     <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                        Confidentiality protects information from **unauthorized disclosure**. This is about keeping sensitive data private.
+                        Confidentiality protects information from <strong>unauthorized disclosure</strong>. This is about keeping sensitive data private.
                     </p>
                     <p class="text-lg font-bold text-gray-800 mb-2">Key Concepts:</p>
                     <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
-                        <li><span class="font-bold">PII (Personally Identifiable Information):</span> Any data that can identify an individual.</li>
-                        <li><span class="font-bold">PHI (Protected Health Information):</span> Healthcare records regulated by HIPAA.</li>
+                        <li><strong>PII (Personally Identifiable Information):</strong> Any data that can identify an individual.</li>
+                        <li><strong>PHI (Protected Health Information):</strong> Healthcare records regulated by HIPAA.</li>
                     </ul>
                 </div>
             </div>
@@ -74,21 +79,21 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Confidentiality</h2>
                     <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
-                        <li><span class="font-bold">Snooping:</span> Mitigated by "clean desk policies."</li>
-                        <li><span class="font-bold">Dumpster Diving:</span> Mitigated by shredding documents.</li>
-                        <li><span class="font-bold">Eavesdropping:</span> Mitigated by rules for sensitive conversations.</li>
-                        <li><span class="font-bold">Wiretapping:</span> Mitigated by **encryption**.</li>
-                        <li><span class="font-bold">Social Engineering:</span> Mitigated by "educating users."</li>
+                        <li><strong>Snooping:</strong> Mitigated by "clean desk policies."</li>
+                        <li><strong>Dumpster Diving:</strong> Mitigated by shredding documents.</li>
+                        <li><strong>Eavesdropping:</strong> Mitigated by rules for sensitive conversations.</li>
+                        <li><strong>Wiretapping:</strong> Mitigated by <strong>encryption</strong>.</li>
+                        <li><strong>Social Engineering:</strong> Mitigated by "educating users."</li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Slide 5: Integrity -->
             <div id="slide-5" class="slide">
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-4">Integrity</h2>
                     <p class="text-lg text-gray-700 leading-relaxed">
-                        Integrity protects information from **unauthorized changes**. This ensures data is accurate and trustworthy.
+                        Integrity protects information from <strong>unauthorized changes</strong>. This ensures data is accurate and trustworthy.
                     </p>
                 </div>
             </div>
@@ -98,10 +103,10 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Integrity</h2>
                     <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
-                        <li><span class="font-bold">Unauthorized Modification:</span> Mitigated by the **least privilege** principle.</li>
-                        <li><span class="font-bold">Impersonation:</span> Mitigated by "user education."</li>
-                        <li><span class="font-bold">Man-in-the-Middle (MITM):</span> Mitigated by **encryption**.</li>
-                        <li><span class="font-bold">Replay Attacks:</span> Mitigated by **encryption**.</li>
+                        <li><strong>Unauthorized Modification:</strong> Mitigated by the <strong>least privilege</strong> principle.</li>
+                        <li><strong>Impersonation:</strong> Mitigated by "user education."</li>
+                        <li><strong>Man-in-the-Middle (MITM):</strong> Mitigated by <strong>encryption</strong>.</li>
+                        <li><strong>Replay Attacks:</strong> Mitigated by <strong>encryption</strong>.</li>
                     </ul>
                 </div>
             </div>
@@ -111,7 +116,7 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-4">Availability</h2>
                     <p class="text-lg text-gray-700 leading-relaxed">
-                        Availability protects **authorized access** to systems and data. This ensures users can get to what they need, when they need it.
+                        Availability protects <strong>authorized access</strong> to systems and data. This ensures users can get to what they need, when they need it.
                     </p>
                 </div>
             </div>
@@ -121,10 +126,10 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Availability</h2>
                     <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
-                        <li><span class="font-bold">Denial of Service (DoS):</span> Mitigated by blocking unauthorized connections.</li>
-                        <li><span class="font-bold">Power Outages:</span> Mitigated with redundant power and generators.</li>
-                        <li><span class="font-bold">Hardware Failures:</span> Mitigated with redundant components.</li>
-                        <li><span class="font-bold">Destruction:</span> Mitigated with data backups and disaster recovery plans.</li>
+                        <li><strong>Denial of Service (DoS):</strong> Mitigated by blocking unauthorized connections.</li>
+                        <li><strong>Power Outages:</strong> Mitigated with redundant power and generators.</li>
+                        <li><strong>Hardware Failures:</strong> Mitigated with redundant components.</li>
+                        <li><strong>Destruction:</strong> Mitigated with data backups and disaster recovery plans.</li>
                     </ul>
                 </div>
             </div>
@@ -134,14 +139,14 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-4">Authentication and Authorization (AAA)</h2>
                     <ol class="list-decimal pl-8 text-lg text-gray-700 space-y-4">
-                        <li><span class="font-bold">Identification:</span> Making a claim of identity (e.g., a username).</li>
-                        <li><span class="font-bold">Authentication:</span> Proving that claim of identity (e.g., a password).</li>
-                        <li><span class="font-bold">Authorization:</span> Ensuring that an action is allowed based on your identity.</li>
-                        <li><span class="font-bold">Accounting:</span> Tracking and logging user activity.</li>
+                        <li><strong>Identification:</strong> Making a claim of identity (e.g., a username).</li>
+                        <li><strong>Authentication:</strong> Proving that claim of identity (e.g., a password).</li>
+                        <li><strong>Authorization:</strong> Ensuring that an action is allowed based on your identity.</li>
+                        <li><strong>Accounting:</strong> Tracking and logging user activity.</li>
                     </ol>
                 </div>
             </div>
-            
+
             <!-- Slide 10: Password Security -->
             <div id="slide-10" class="slide">
                 <div class="py-16">
@@ -150,10 +155,10 @@
                         Strong passwords are a key part of authentication. Mechanisms include:
                     </p>
                     <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
-                        <li><span class="font-bold">Length:</span> Minimum number of characters.</li>
-                        <li><span class="font-bold">Complexity:</span> Required character types (e.g., symbols, numbers).</li>
-                        <li><span class="font-bold">Expiration:</span> Forcing password changes periodically.</li>
-                        <li><span class="font-bold">History:</span> Preventing password reuse.</li>
+                        <li><strong>Length:</strong> Minimum number of characters.</li>
+                        <li><strong>Complexity:</strong> Required character types (e.g., symbols, numbers).</li>
+                        <li><strong>Expiration:</strong> Forcing password changes periodically.</li>
+                        <li><strong>History:</strong> Preventing password reuse.</li>
                     </ul>
                 </div>
             </div>
@@ -166,9 +171,9 @@
                         MFA combines at least two different authentication factors to verify identity.
                     </p>
                     <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
-                        <li><span class="font-bold">Something you know:</span> Passwords, PINs, security questions.</li>
-                        <li><span class="font-bold">Something you are:</span> Biometric security (fingerprint, face).</li>
-                        <li><span class="font-bold">Something you have:</span> Software or hardware tokens.</li>
+                        <li><strong>Something you know:</strong> Passwords, PINs, security questions.</li>
+                        <li><strong>Something you are:</strong> Biometric security (fingerprint, face).</li>
+                        <li><strong>Something you have:</strong> Software or hardware tokens.</li>
                     </ul>
                 </div>
             </div>
@@ -198,7 +203,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Slide 14: Privacy -->
             <div id="slide-14" class="slide">
                 <div class="py-16">
