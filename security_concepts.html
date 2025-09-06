@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things to know before we begin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .slide {
+            transition: opacity 0.5s ease-in-out;
+            min-height: 500px;
+        }
+        .slide:not(.active) {
+            opacity: 0;
+            display: none;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+            list-style-position: outside;
+        }
+        ul li, ol li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Presentation Container -->
+    <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
+        
+        <!-- Slides -->
+        <div id="slides-container" class="relative w-full h-full">
+
+            <!-- Slide 1: Title -->
+            <div id="slide-1" class="slide active">
+                <div class="flex flex-col items-center justify-center text-center py-16">
+                    <h1 class="text-5xl font-extrabold text-blue-800 mb-4 tracking-tight">Things to know before we begin</h1>
+                    <p class="text-2xl font-semibold text-gray-600">A quick overview of key security concepts.</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: CIA Triad -->
+            <div id="slide-2" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">The CIA Triad</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The **Confidentiality, Integrity, and Availability** (CIA) Triad are the three main goals of information security. They are a model for the development of security policies.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 3: Confidentiality -->
+            <div id="slide-3" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Confidentiality</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Confidentiality protects information from **unauthorized disclosure**. This is about keeping sensitive data private.
+                    </p>
+                    <p class="text-lg font-bold text-gray-800 mb-2">Key Concepts:</p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li><span class="font-bold">PII (Personally Identifiable Information):</span> Any data that can identify an individual.</li>
+                        <li><span class="font-bold">PHI (Protected Health Information):</span> Healthcare records regulated by HIPAA.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 4: Confidentiality Concerns -->
+            <div id="slide-4" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Confidentiality</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Snooping:</span> Mitigated by "clean desk policies."</li>
+                        <li><span class="font-bold">Dumpster Diving:</span> Mitigated by shredding documents.</li>
+                        <li><span class="font-bold">Eavesdropping:</span> Mitigated by rules for sensitive conversations.</li>
+                        <li><span class="font-bold">Wiretapping:</span> Mitigated by **encryption**.</li>
+                        <li><span class="font-bold">Social Engineering:</span> Mitigated by "educating users."</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 5: Integrity -->
+            <div id="slide-5" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Integrity</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Integrity protects information from **unauthorized changes**. This ensures data is accurate and trustworthy.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 6: Integrity Concerns -->
+            <div id="slide-6" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Integrity</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Unauthorized Modification:</span> Mitigated by the **least privilege** principle.</li>
+                        <li><span class="font-bold">Impersonation:</span> Mitigated by "user education."</li>
+                        <li><span class="font-bold">Man-in-the-Middle (MITM):</span> Mitigated by **encryption**.</li>
+                        <li><span class="font-bold">Replay Attacks:</span> Mitigated by **encryption**.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 7: Availability -->
+            <div id="slide-7" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Availability</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Availability protects **authorized access** to systems and data. This ensures users can get to what they need, when they need it.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 8: Availability Concerns -->
+            <div id="slide-8" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Availability</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Denial of Service (DoS):</span> Mitigated by blocking unauthorized connections.</li>
+                        <li><span class="font-bold">Power Outages:</span> Mitigated with redundant power and generators.</li>
+                        <li><span class="font-bold">Hardware Failures:</span> Mitigated with redundant components.</li>
+                        <li><span class="font-bold">Destruction:</span> Mitigated with data backups and disaster recovery plans.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 9: AAA -->
+            <div id="slide-9" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Authentication and Authorization (AAA)</h2>
+                    <ol class="list-decimal pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Identification:</span> Making a claim of identity (e.g., a username).</li>
+                        <li><span class="font-bold">Authentication:</span> Proving that claim of identity (e.g., a password).</li>
+                        <li><span class="font-bold">Authorization:</span> Ensuring that an action is allowed based on your identity.</li>
+                        <li><span class="font-bold">Accounting:</span> Tracking and logging user activity.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Slide 10: Password Security -->
+            <div id="slide-10" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Password Security</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Strong passwords are a key part of authentication. Mechanisms include:
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li><span class="font-bold">Length:</span> Minimum number of characters.</li>
+                        <li><span class="font-bold">Complexity:</span> Required character types (e.g., symbols, numbers).</li>
+                        <li><span class="font-bold">Expiration:</span> Forcing password changes periodically.</li>
+                        <li><span class="font-bold">History:</span> Preventing password reuse.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 11: Multi-factor Authentication -->
+            <div id="slide-11" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Multi-factor Authentication (MFA)</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        MFA combines at least two different authentication factors to verify identity.
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Something you know:</span> Passwords, PINs, security questions.</li>
+                        <li><span class="font-bold">Something you are:</span> Biometric security (fingerprint, face).</li>
+                        <li><span class="font-bold">Something you have:</span> Software or hardware tokens.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 12: Single Sign-On -->
+            <div id="slide-12" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Single Sign-On (SSO)</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        SSO allows users to log in once and gain access to multiple systems without re-authenticating. This improves user experience and security.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 13: Non-repudiation -->
+            <div id="slide-13" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Non-repudiation</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Non-repudiation prevents someone from falsely denying they performed a particular action.
+                    </p>
+                    <p class="text-lg font-bold text-gray-800 mt-4 mb-2">Examples include:</p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li>Signed contracts</li>
+                        <li>Digital signatures</li>
+                        <li>Video surveillance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 14: Privacy -->
+            <div id="slide-14" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Privacy</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Privacy is the right of an individual to control the distribution of information about themselves.
+                    </p>
+                    <p class="text-lg font-bold text-gray-800 mt-4 mb-2">Key concerns include:</p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li>Protecting our own data.</li>
+                        <li>Educating users about their data.</li>
+                        <li>Protecting data collected by organizations.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex justify-between w-full mt-8">
+            <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                Previous
+            </button>
+            <div id="slide-counter" class="text-lg font-medium text-gray-500 flex items-center">
+                Slide 1 of 14
+            </div>
+            <button id="next-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Next
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            let currentSlideIndex = 0;
+
+            function updateSlide() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                updateSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+
+            // Initial setup
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
