@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            transition: background-color 0.5s;
+        }
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-color: #f0f4f8;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+        p, ul, li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        .text-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .navigation-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            background-color: #4c51bf;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .nav-btn:disabled {
+            background-color: #cbd5e0;
+            cursor: not-allowed;
+        }
+        .nav-btn:hover:enabled {
+            transform: translateY(-2px);
+            background-color: #5a63c6;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .grid-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        .grid-item p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .grid-item ul {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .osivs-tcpip {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .osivs-tcpip div {
+            flex: 1;
+        }
+        .osivs-tcpip ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .osivs-tcpip li {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        .osivs-tcpip .osi-layer {
+            background-color: #d1e7dd;
+        }
+        .osivs-tcpip .tcpip-layer {
+            background-color: #f8d7da;
+        }
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #2d3748;
+            color: white;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+
+        .slide-content-wrapper {
+            max-width: 80%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-button">Home</a>
+
+    <!-- Slides -->
+    <!-- Slide 1: Title Slide -->
+    <div id="slide1" class="slide active">
+        <div class="slide-content-wrapper">
+            <h1 class="text-6xl font-extrabold text-blue-800 animate-pulse">More Networking Terms</h1>
+            <p class="mt-4 text-2xl text-gray-700">Understanding the basics of data communication.</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Ethernet, MAC, and IP -->
+    <div id="slide2" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Key Networking Terms</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Ethernet (IEEE 802.3)</h3>
+                    <p>A standard for wired network connections that defines how data is formatted to ensure devices can communicate over the same cables.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Media Access Control (MAC) Address</h3>
+                    <p>A unique physical address assigned to every network device. The first 3 bytes identify the manufacturer. No two devices on the same local network can have the same MAC address.</p>
+                </div>
+                <div class="grid-item col-span-2">
+                    <h3>Internet Protocol (IP) Address</h3>
+                    <p>A unique logical address that represents a network interface. It's used for communication and can be reassigned, unlike a MAC address which is tied to the hardware.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Networking Models -->
+    <div id="slide3" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Why We Need Networking Models</h2>
+            <p>Networking models provide a structured way to design and understand how different hardware and software systems connect and communicate. They help us break down complex processes into manageable layers.</p>
+            <ul class="list-disc list-inside mt-4 text-left mx-auto">
+                <li>Provide reliable, managed communications between hosts.</li>
+                <li>Isolate functions in different layers.</li>
+                <li>Be vendor-agnostic, scalable, and resilient.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 4: Simple Two-Layer Model -->
+    <div id="slide4" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">A Simple Two-Layer Model</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Upper Layer (Application)</h3>
+                    <p>Manages the connection, controls the session, and ensures data is formatted for the receiving application. It's where applications communicate with the network.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Lower Layer (Media/Transport)</h3>
+                    <p>Handles the physical connection, converting bits into frames and adding routing data to create packets. It's responsible for getting data ready to be sent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: The OSI Model -->
+    <div id="slide5" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">The Open Systems Interconnection (OSI) Model</h2>
+            <p>The OSI model is a conceptual framework that divides network communication into seven distinct layers. Each layer has specific responsibilities and communicates with the layers directly above and below it.  This provides a common reference for understanding how different protocols and hardware work together.</p>
+        </div>
+    </div>
+
+    <!-- Slide 6: OSI Layer Breakdown -->
+    <div id="slide6" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">OSI Layers and Their Functions</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Application, Presentation, Session (L5-7)</h3>
+                    <p>These are the "data" layers. They handle application-specific communication, data formatting, and managing connections. Common terms here include JPEG files (Presentation) and NetBIOS (Session).</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Transport, Network, Data Link (L2-4)</h3>
+                    <p>These layers are all about moving data. The Transport Layer (L4) handles protocols like TCP and UDP. The Network Layer (L3) manages routing and packets with devices like routers. The Data Link Layer (L2) handles frames and devices like switches.</p>
+                </div>
+                <div class="grid-item col-span-2">
+                    <h3>Physical (L1)</h3>
+                    <p>This is the hardware layer, where data is converted into binary (0s and 1s) and sent across physical wires like an Ethernet cable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Encapsulation -->
+    <div id="slide7" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Encapsulation and De-encapsulation</h2>
+            <p><strong>Encapsulation</strong> is the process of adding headers and trailers as data moves down the OSI model. Each layer's data unit is treated as the payload for the next lower layer, making the total size larger.</p>
+            <p><strong>De-encapsulation</strong> is the reverse process. As data moves up the model, the headers and trailers are removed to properly interpret the payload. The data unit becomes smaller.</p>
+            <div class="mt-4"></div>
+        </div>
+    </div>
+
+    <!-- Slide 8: TCP/IP Model -->
+    <div id="slide8" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">The TCP/IP Model</h2>
+            <p>Developed before the OSI model, the TCP/IP protocol stack is the most widely used today. It focuses on the core functions of networking and is simpler with four layers. </p>
+            <div class="mt-4 osivs-tcpip">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">TCP/IP Layers</h3>
+                    <ul>
+                        <li class="tcpip-layer">Application Layer</li>
+                        <li class="tcpip-layer">Transport Layer</li>
+                        <li class="tcpip-layer">Internet Layer</li>
+                        <li class="tcpip-layer">Network Interface Layer</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">Corresponding OSI Layers</h3>
+                    <ul>
+                        <li class="osi-layer">Application, Presentation, Session</li>
+                        <li class="osi-layer">Transport</li>
+                        <li class="osi-layer">Network</li>
+                        <li class="osi-layer">Data Link, Physical</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: TCP vs UDP -->
+    <div id="slide9" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">TCP vs. UDP</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Transmission Control Protocol (TCP)</h3>
+                    <p>A full-duplex connection-oriented protocol. It establishes a connection before sending data, ensuring all packets are received and in the correct order. Great for reliable data transfer like web pages and emails.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>User Datagram Protocol (UDP)</h3>
+                    <p>A simplex connectionless protocol. It sends data without establishing a connection first. It's faster but less reliable, making it ideal for real-time applications like video streaming and online gaming where speed is more important than every single packet arriving.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: IP Addressing (IPv4) -->
+    <div id="slide10" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Internet Protocol Version 4 (IPv4)</h2>
+            <p>IPv4 uses a 32-bit address space, written as four octets separated by dots (e.g., <code>192.168.1.1</code>). It's divided into a network number and a host part. Due to a limited number of public addresses, private address ranges were created to be reused within local networks.</p>
+        </div>
+    </div>
+
+    <!-- Slide 11: Private IPv4 Ranges -->
+    <div id="slide11" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Private IPv4 Address Ranges</h2>
+            <p>These addresses can be used by anyone for internal networks, allowing for address reuse without conflicts on the public internet.</p>
+            <ul class="list-disc list-inside mt-4 mx-auto text-left">
+                <li><code>10.0.0.0</code> to <code>10.255.255.254</code></li>
+                <li><code>172.16.0.0</code> to <code>172.31.255.254</code></li>
+                <li><code>192.168.0.0</code> to <code>192.168.255.254</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 12: Loopback Address -->
+    <div id="slide12" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">The Loopback Address</h2>
+            <p>The address <code>127.0.0.1</code> is reserved for a computer's loopback address. It allows a machine to send a network packet to itself, which is useful for troubleshooting and self-diagnosis.</p>
+        </div>
+    </div>
+
+    <!-- Slide 13: Internet Protocol Version 6 (IPv6) -->
+    <div id="slide13" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Internet Protocol Version 6 (IPv6)</h2>
+            <p>IPv6 is a modernization of IPv4 that addresses its shortcomings. It uses a 128-bit address space, which provides a virtually unlimited number of addresses. An example address is <code>2001:db8::ffff:0:1</code>.</p>
+            <ul class="list-disc list-inside mt-4 mx-auto text-left">
+                <li><strong>Larger address field:</strong> Eliminates the shortage of public addresses.</li>
+                <li><strong>Improved security:</strong> IPsec is a mandatory component.</li>
+                <li><strong>Improved Quality of Service (QoS):</strong> Helps services get the bandwidth they need.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 14: Final Slide -->
+    <div id="slide14" class="slide">
+        <div class="slide-content-wrapper">
+            <h2 class="text-5xl font-extrabold text-blue-800">You're All Set!</h2>
+            <p class="mt-4 text-2xl text-gray-700">These key concepts are fundamental to understanding how networks operate.</p>
+            <p class="mt-4 text-2xl text-gray-700">Feel free to ask for a deeper dive on any of these topics.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <button id="prevBtn" class="nav-btn">Previous</button>
+        <button id="nextBtn" class="nav-btn">Next</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            updateButtons();
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
