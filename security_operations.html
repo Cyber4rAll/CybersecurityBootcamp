@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L5 Security Operations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .slide {
+            transition: opacity 0.5s ease-in-out;
+            min-height: 500px;
+        }
+        .slide:not(.active) {
+            opacity: 0;
+            display: none;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+            list-style-position: outside;
+        }
+        ul li, ol li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Presentation Container -->
+    <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
+        
+        <!-- Slides -->
+        <div id="slides-container" class="relative w-full h-full">
+
+            <!-- Slide 1: Title and Introduction -->
+            <div id="slide-1" class="slide active">
+                <div class="py-16">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-2 tracking-tight">
+                        L5 Security Operations
+                    </h1>
+                    <h2 class="text-xl sm:text-2xl font-semibold text-gray-600 mb-8">
+                        Module 1: Understand Data Security
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <strong>Hardening</strong> is the process of applying secure configurations to reduce the attack surface and locking down various hardware, communications systems and software.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Data Handling -->
+            <div id="slide-2" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Data Handling</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Data itself goes through its own life cycle as users create, use, share and modify it. The data security life cycle model is useful because it can align easily with the different roles that people and organizations perform.
+                    </p>
+                    <p class="text-lg font-semibold text-gray-700 leading-relaxed mb-2">
+                        Six Major Sets of Activities:
+                    </p>
+                    <ol class="list-decimal pl-8 text-lg text-gray-700 space-y-2">
+                        <li>Creating the knowledge</li>
+                        <li>Storing or recording it</li>
+                        <li>Using the knowledge</li>
+                        <li>Sharing the data</li>
+                        <li>Archiving the data</li>
+                        <li>Destroying the data</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Slide 3: Data Handling Practices: Classification -->
+            <div id="slide-3" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Data Handling Practices</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Classification</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        <strong>Classification</strong> dictates rules and restrictions about how that information can be used, stored or shared with others. It is the process of recognizing the organizational impacts if the information suffers any security compromises related to its confidentiality, integrity and availability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 4: Data Handling Practices: Labeling -->
+            <div id="slide-4" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Data Handling Practices</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Labeling</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Security labels are part of implementing controls to protect classified information. It is a simple way of assigning a level of sensitivity to a data asset, such that the higher the level, the greater the presumed harm to the organization, and thus the greater security protection the data asset requires.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 5: Data Sensitivity Levels -->
+            <div id="slide-5" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Data Sensitivity Levels</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Highly restricted:</strong> Compromise could put the organization’s future existence at risk.</p>
+                        </li>
+                        <li>
+                            <p><strong>Moderately restricted:</strong> Compromise could lead to loss of temporary competitive advantage or revenue.</p>
+                        </li>
+                        <li>
+                            <p><strong>Low sensitivity:</strong> Compromise could cause minor disruptions, delays or impacts.</p>
+                        </li>
+                        <li>
+                            <p><strong>Unrestricted public data:</strong> No harm can come from further dissemination.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 6: Data Handling Practices: Retention -->
+            <div id="slide-6" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Data Handling Practices</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Retention</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Information and data should be kept only for as long as it is beneficial. Data retention policies are applicable both for hard copies and for electronic data.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Security professionals should ensure that data destruction is performed when an asset has reached its retention limit.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 7: Data Handling Practices: Destruction -->
+            <div id="slide-7" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Data Handling Practices</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Destruction</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Data that might be left on media after deleting is known as **remanence** and may be a significant security concern.
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Clearing:</strong> writing multiple patterns of random values throughout all storage media.</p>
+                        </li>
+                        <li>
+                            <p><strong>Purging:</strong> eliminating the chance that residual physical effects may still be recovered.</p>
+                        </li>
+                        <li>
+                            <p><strong>Physical destruction:</strong> the ultimate remedy to data remanence.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 8: Logging and Monitoring -->
+            <div id="slide-8" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Logging & Monitoring</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Logging is the primary form of instrumentation that attempts to capture signals generated by events. **Logging imposes a computational cost but is invaluable when determining accountability**.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Logging and monitoring the health of the information environment is essential to identifying inefficient or improperly performing systems and detecting compromises.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 9: Event Logging Best Practices -->
+            <div id="slide-9" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Event Logging Best Practices</h2>
+                    <p class="text-lg font-semibold text-gray-700 leading-relaxed mb-2">
+                        Ingress monitoring:
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Refers to surveillance and assessment of all inbound communications traffic and access attempts.
+                    </p>
+                    <p class="text-lg font-semibold text-gray-700 leading-relaxed mb-2">
+                        Egress monitoring:
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Used to regulate data leaving the organization’s IT environment. The term currently used in conjunction with this effort is **data loss prevention (DLP)**.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 10: Encryption Overview -->
+            <div id="slide-10" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Encryption Overview</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Cryptography is used to protect information by keeping its meaning or content secret and making it unintelligible to someone who does not have a way to decrypt that protected information.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Properly used, cryptographic solutions provide services that help achieve required systems security postures, including:
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Confidentiality:</strong> Hiding or obscuring a message so that it cannot be understood by anyone except the intended recipient.</p>
+                        </li>
+                        <li>
+                            <p><strong>Integrity:</strong> Hash functions and digital signatures can provide integrity services that allow a recipient to verify that a message has not been altered.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 11: Module 2: System Hardening -->
+            <div id="slide-11" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 2: Understand System Hardening</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <strong>Configuration management</strong> is a process and discipline used to ensure that the only changes made to a system are those that have been authorized and validated.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        It is both a decision-making process and a set of control processes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 12: Configuration Management Components -->
+            <div id="slide-12" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Configuration Management</h2>
+                    <ol class="list-decimal pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Identification:</strong> Baseline identification of a system and all its components, interfaces and documentation.</p>
+                        </li>
+                        <li>
+                            <p><strong>Baseline:</strong> A security baseline is a minimum level of protection that can be used as a reference point.</p>
+                        </li>
+                        <li>
+                            <p><strong>Change Control:</strong> An update process for requesting changes to a baseline.</p>
+                        </li>
+                        <li>
+                            <p><strong>Verification & Audit:</strong> A regression and validation process to verify that nothing in the system was broken by a newly applied set of changes.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Slide 13: Inventory and Baselines -->
+            <div id="slide-13" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Inventory & Baselines</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Making an inventory of all the information assets is the first step in any asset management process. **You can’t protect what you don’t know you have.**
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The **baseline** is a total inventory of all the system’s components, hardware, software, data, administrative controls, documentation and user instructions. All further comparisons and development are measured against the baselines.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 14: Updates and Patches -->
+            <div id="slide-14" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Updates & Patches</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Updates must be acceptance tested and regression tested to verify that the modifications did not introduce other erroneous or unexpected behaviors.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The challenge for the security professional is maintaining all patches. An organization should **test the patch before rolling it out** across the organization and have a **rollback plan** in case it does not work.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 15: Module 3: Security Policies -->
+            <div id="slide-15" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 3: Best Practice Security Policies</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        An organization’s security policies define what “security” means to that organization. They express or impose behavioral or other constraints on the system and its use.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 16: Common Policies: Data Handling & Password -->
+            <div id="slide-16" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Common Security Policies</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Data Handling Policy:</strong> Defines whether data is for internal use, restricted use, or can be made public.</p>
+                        </li>
+                        <li>
+                            <p><strong>Password Policy:</strong> Defines expectations of systems and users regarding password complexity, length, and change frequency.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 17: Common Policies: AUP & BYOD -->
+            <div id="slide-17" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Common Security Policies (Cont.)</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Acceptable Use Policy (AUP):</strong> Defines acceptable use of the organization’s network and computer systems. It helps protect the organization from legal action.</p>
+                        </li>
+                        <li>
+                            <p><strong>Bring Your Own Device (BYOD):</strong> An organization may allow workers to use personally owned equipment for business use. This presents additional challenges for security professionals.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 18: Common Policies: Privacy Policy -->
+            <div id="slide-18" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Common Security Policies (Cont.)</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Privacy Policy</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        It is imperative that the organization documents that personnel understand and acknowledge the organization’s policies and procedures for handling personally identifiable information (PII).
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        This type of policy should stipulate which information is considered PII/ePHI, the appropriate handling procedures, and any enforcement mechanisms.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 19: Common Policies: Change Management -->
+            <div id="slide-19" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Common Security Policies (Cont.)</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Change Management Policy</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Change management is the discipline of transitioning from the current state to a future state. It consists of three major activities: deciding to change, making the change, and confirming that the change has been correctly accomplished.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Change management requires a process to implement the necessary changes so they do not adversely affect business operations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 20: Change Management Components -->
+            <div id="slide-20" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Change Management Components</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Documentation:</strong> All major change management practices start with a request for change (RFC).</p>
+                        </li>
+                        <li>
+                            <p><strong>Approval:</strong> Processes for evaluating RFCs, stakeholder reviews, and approvals or rejections.</p>
+                        </li>
+                        <li>
+                            <p><strong>Rollback:</strong> A variety of activities to be completed in case a change is not successful, defined in a rollback plan.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 21: Module 4: Security Awareness Training -->
+            <div id="slide-21" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 4: Security Awareness Training</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The purpose of awareness training is to make sure everyone knows what is expected of them, based on responsibilities and accountabilities.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        It is crucial that the organization informs its employees and staff how to recognize security problems and how to operate in a secure manner.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 22: Three Types of Learning -->
+            <div id="slide-22" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Three Types of Learning</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Education:</strong> Helps learners improve their understanding of ideas and their ability to relate and apply them.</p>
+                        </li>
+                        <li>
+                            <p><strong>Training:</strong> Focuses on building proficiency in a specific set of skills or actions.</p>
+                        </li>
+                        <li>
+                            <p><strong>Awareness:</strong> Activities that attract and engage the learner’s attention by acquainting them with aspects of an issue or concern.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 23: Training Examples: Fire Safety -->
+            <div id="slide-23" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Training Examples</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Fire Safety</h3>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Education:</strong> A worker in a server room understands how fire detectors and suppression systems interact.</p>
+                        </li>
+                        <li>
+                            <p><strong>Training:</strong> The worker receives task-specific learning on proper actions to take during an alarm.</p>
+                        </li>
+                        <li>
+                            <p><strong>Awareness:</strong> Appropriate signage and markings are posted to help workers detect an anomaly and respond to an alarm.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 24: Training Examples: Anti-Phishing -->
+            <div id="slide-24" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Training Examples (Cont.)</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Anti-Phishing Campaign</h3>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Education:</strong> Helps select groups of users better understand how social engineering attacks are conducted.</p>
+                        </li>
+                        <li>
+                            <p><strong>Training:</strong> Helps users increase their proficiency in recognizing potential phishing attempts.</p>
+                        </li>
+                        <li>
+                            <p><strong>Awareness:</strong> Raises users’ overall awareness of the threat posed by phishing</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 25: Social Engineering Tactics -->
+            <div id="slide-25" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Social Engineering Tactics</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Social engineering is an important part of any security awareness training program for one very simple reason: **bad actors know that it works**.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        For cyberattackers, social engineering is an inexpensive investment with a potentially very high payoff.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 26: Vishing -->
+            <div id="slide-26" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Vishing (Phone Phishing)</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Using a rogue interactive voice response (IVR) system to re-create a legitimate-sounding copy of a bank or other institution’s IVR system.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The victim is prompted to call in to the "bank" to verify information such as account numbers, PIN, or answers to security questions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 27: Pretexting & Quid pro quo -->
+            <div id="slide-27" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Pretexting & Quid Pro Quo</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Pretexting:</strong> The human equivalent of phishing, where someone impersonates an authority figure or a trusted individual to gain access to login information.</p>
+                        </li>
+                        <li>
+                            <p><strong>Quid pro quo:</strong> A request for your password or login credentials in exchange for some compensation, such as a "free gift" or monetary payment.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 28: Tailgating -->
+            <div id="slide-28" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Tailgating</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The practice of following an authorized user into a restricted area or system.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        In a more sophisticated version, someone may ask to borrow your phone or laptop to perform a simple action when they are actually installing malicious software onto your device.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 29: Password Protection -->
+            <div id="slide-29" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Password Protection</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Many password managers will store a user’s passwords, but the greatest disadvantage is the risk of compromise of the password manager itself.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Organizations should encourage the use of different passwords for different systems and provide a recommended password management solution.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 30: Poor Password Practices -->
+            <div id="slide-30" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Avoid These Password Practices</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p>Reusing passwords for multiple systems, especially for business and personal use.</p>
+                        </li>
+                        <li>
+                            <p>Writing down passwords and leaving them in unsecured areas.</p>
+                        </li>
+                        <li>
+                            <p>Sharing a password with tech support or a co-worker.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex justify-between w-full mt-8">
+            <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                Previous
+            </button>
+            <div id="slide-counter" class="text-lg font-medium text-gray-500 flex items-center">
+                Slide 1 of 30
+            </div>
+            <button id="next-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Next
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            let currentSlideIndex = 0;
+
+            function updateSlide() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                updateSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+
+            // Initial setup
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
