@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L1: Security Principles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Tailwind's gray-100 */
+        }
+        .slide {
+            transition: opacity 0.5s ease-in-out;
+            min-height: 500px;
+        }
+        .slide:not(.active) {
+            opacity: 0;
+            display: none;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+            list-style-position: outside;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Presentation Container -->
+    <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
+        
+        <!-- Slides -->
+        <div id="slides-container" class="relative w-full h-full">
+
+            <!-- Slide 1: Title -->
+            <div id="slide-1" class="slide active">
+                <div class="flex flex-col items-center justify-center text-center py-16">
+                    <h1 class="text-5xl font-extrabold text-blue-800 mb-4 tracking-tight">L1: Security Principles</h1>
+                    <p class="text-2xl font-semibold text-gray-600">Module 1: Understand the Security Concepts of Information Assurance</p>
+                    <p class="text-lg text-gray-500 mt-4">Domains D1.1.1 - D1.1.6</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Confidentiality -->
+            <div id="slide-2" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Confidentiality</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        It relates to permitting authorized access to information, while protecting it from improper disclosure.
+                    </p>
+                    <p class="text-lg font-bold text-gray-800 mb-2">Key Concepts:</p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li><span class="font-bold">PII (Personally Identifiable Information)</span>: Data used to identify an individual.</li>
+                        <li><span class="font-bold">PHI (Protected Health Information)</span>: Information about one's health status.</li>
+                        <li><span class="font-bold">Sensitive Information</span>: Data whose improper disclosure would harm an organization or individual.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 3: Threats to Confidentiality -->
+            <div id="slide-3" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Confidentiality</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Snooping:</span> Gathering information left out in the open. Mitigated by clean desk policies.</li>
+                        <li><span class="font-bold">Dumpster Diving:</span> Looking for sensitive materials in the trash. Mitigated by paper shredding.</li>
+                        <li><span class="font-bold">Eavesdropping:</span> Secretly listening to a conversation. Mitigated by rules for sensitive conversations.</li>
+                        <li><span class="font-bold">Wiretapping:</span> The electronic version of eavesdropping. Mitigated by using encryption.</li>
+                        <li><span class="font-bold">Social Engineering:</span> Tricking users into revealing information. Mitigated by user education.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Integrity -->
+            <div id="slide-4" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Integrity</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Ensuring data is complete, accurate, and consistent. It applies to data in storage, during processing, and in transit.
+                    </p>
+                    <p class="text-lg font-bold text-gray-800 mb-2">Key Concepts:</p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li><span class="font-bold">Consistency:</span> All instances of data are identical.</li>
+                        <li><span class="font-bold">Baseline:</span> A documented, secure configuration of a system or data at a certain point.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 5: Threats to Integrity -->
+            <div id="slide-5" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Integrity</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Unauthorized Modification:</span> Making changes without permission. Mitigated by least privilege principle.</li>
+                        <li><span class="font-bold">Impersonation:</span> Pretending to be someone else. Mitigated by user education.</li>
+                        <li><span class="font-bold">Man-In-The-Middle (MITM):</span> An attacker intercepts and monitors a communication session.</li>
+                        <li><span class="font-bold">Replay Attacks:</span> Eavesdropping on logins and reusing captured credentials.</li>
+                    </ul>
+                    <p class="text-lg text-gray-600 mt-4">For MiTM and Replay attacks, the best defense is <span class="font-bold">encryption</span>.</p>
+                </div>
+            </div>
+
+            <!-- Slide 6: Availability -->
+            <div id="slide-6" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Availability</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Timely and reliable access to data and systems for authorized users when and where it is needed.
+                    </p>
+                    <p class="text-lg font-bold text-gray-800 mb-2">Key Concepts:</p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li><span class="font-bold">Criticality:</span> A measure of how much an organization depends on a system or data for its mission.</li>
+                    </ul>
+                    <p class="text-lg text-gray-600 mt-4">Not all systems need to be available 100% of the time, but critical systems must meet business requirements.</p>
+                </div>
+            </div>
+
+            <!-- Slide 7: Threats to Availability -->
+            <div id="slide-7" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Threats to Availability</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Denial of Service (DoS):</span> Can be mitigated with firewalls.</li>
+                        <li><span class="font-bold">Power Outages:</span> Can be mitigated with redundant power and generators.</li>
+                        <li><span class="font-bold">Hardware Failures:</span> Can be mitigated with redundant components.</li>
+                        <li><span class="font-bold">Destruction:</span> Can be mitigated with backups.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 8: The Triple A (AAA) -->
+            <div id="slide-8" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">The Triple A (AAA)</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The three steps to gain access to a system.
+                    </p>
+                    <ul class="list-decimal pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Identification:</span> Making a claim of identity.</li>
+                        <li><span class="font-bold">Authentication:</span> Validating that the user is the rightful owner of that identity.</li>
+                        <li><span class="font-bold">Authorization:</span> Ensuring that an action is allowed.</li>
+                        <li><span class="font-bold">Accounting:</span> Maintaining logs of activity.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 9: Methods of Authentication -->
+            <div id="slide-9" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Authentication Methods</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Something You Know:</span> Passwords or passphrases.</li>
+                        <li><span class="font-bold">Something You Have:</span> Tokens, memory cards, or smart cards.</li>
+                        <li><span class="font-bold">Something You Are:</span> Biometrics (fingerprints, face).</li>
+                    </ul>
+                    <p class="text-lg text-gray-600 mt-4"><span class="font-bold">Single-Factor Authentication (SFA)</span> uses only one of these methods. <span class="font-bold">Multi-Factor Authentication (MFA)</span> uses two or more.</p>
+                </div>
+            </div>
+
+            <!-- Slide 10: Password Best Practices -->
+            <div id="slide-10" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Password Best Practices</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>Password length and complexity requirements.</li>
+                        <li>Password history to prevent reuse.</li>
+                        <li>Encourage users not to reuse passwords across multiple sites.</li>
+                        <li>Provide a quick and easy way to change passwords.</li>
+                        <li>Password managers facilitate strong, unique passwords.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 11: Non-repudiation & Privacy -->
+            <div id="slide-11" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Non-repudiation</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Legal term defined as the protection against an individual falsely denying having performed a particular action.
+                    </p>
+                    <h2 class="text-4xl font-semibold text-blue-800 mt-8 mb-4">Privacy</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The right of an individual to control the distribution of information about themselves.
+                    </p>
+                    <p class="text-lg text-gray-600 mt-4">Legislation like GDPR can have a global impact on how companies handle personal data.</p>
+                </div>
+            </div>
+
+            <!-- Slide 12: Base Concepts Review -->
+            <div id="slide-12" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Base Concepts Review</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-2">
+                        <li><span class="font-bold">Authentication:</span> Validating an identity claim.</li>
+                        <li><span class="font-bold">Integrity:</span> Data has not been altered in an unauthorized manner.</li>
+                        <li><span class="font-bold">Confidentiality:</span> Data is not disclosed to unauthorized persons.</li>
+                        <li><span class="font-bold">Privacy:</span> The right to control personal information.</li>
+                        <li><span class="font-bold">Availability:</span> Timely and reliable access to information.</li>
+                        <li><span class="font-bold">Non-repudiation:</span> The inability to deny taking an action.</li>
+                        <li><span class="font-bold">Authorization:</span> The permission to access a resource.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 13: Module 2: Risk Management -->
+            <div id="slide-13" class="slide">
+                <div class="flex flex-col items-center justify-center text-center py-16">
+                    <h2 class="text-4xl font-extrabold text-blue-800 mb-4 tracking-tight">Module 2: Risk Management Process</h2>
+                    <p class="text-2xl font-semibold text-gray-600">Identifying, assessing, and mitigating risks.</p>
+                    <p class="text-lg text-gray-500 mt-4">Domains D1.2.1 - D1.2.2</p>
+                </div>
+            </div>
+
+            <!-- Slide 14: What is Risk? -->
+            <div id="slide-14" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">What is Risk?</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        A measure of the extent to which an entity is threatened by a potential circumstance or event. It is a combination of the **adverse impacts** that would arise and the **likelihood** of its occurrence.
+                    </p>
+                    <p class="text-lg font-bold text-gray-800 mb-2">The Risk Matrix:</p>
+                    <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
+                        <li>Low Probability, Low Impact</li>
+                        <li>Low Probability, High Impact</li>
+                        <li>High Probability, Low Impact</li>
+                        <li>High Probability, High Impact</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 15: Risk Terminology -->
+            <div id="slide-15" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Risk Management Terminology</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Asset:</span> Something of value that needs protection.</li>
+                        <li><span class="font-bold">Vulnerability:</span> A gap or weakness in an organization's protection.</li>
+                        <li><span class="font-bold">Threat:</span> A person or entity that aims to exploit a vulnerability.</li>
+                        <li><span class="font-bold">Likelihood:</span> The probability that a vulnerability will be exploited.</li>
+                        <li><span class="font-bold">Impact:</span> The magnitude of harm that can be expected from an event.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 16: Risk Identification & Assessment -->
+            <div id="slide-16" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Risk Identification & Assessment</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Risk identification is a continuous process. Everyone in the organization is responsible for it.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Risk assessment is the process of identifying, estimating, and prioritizing risks. It results in a report for management to determine mitigation priorities.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 17: Risk Treatment -->
+            <div id="slide-17" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Risk Treatment Options</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Avoidance:</span> Eliminating the risk entirely by ceasing the activity.</li>
+                        <li><span class="font-bold">Acceptance:</span> Taking no action to reduce the risk.</li>
+                        <li><span class="font-bold">Mitigation:</span> Taking actions to prevent or reduce the possibility of a risk event.</li>
+                        <li><span class="font-bold">Transfer:</span> Passing the risk to another party (e.g., insurance).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 18: Risk Priorities & Tolerance -->
+            <div id="slide-18" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-4">Risk Priorities & Tolerance</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Organizations use a risk matrix to prioritize risks based on likelihood and impact.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        <span class="font-bold">Risk Tolerance</span> is the level of risk an organization is willing to accept. This varies by company and even by department.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 19: Module 3: Security Controls -->
+            <div id="slide-19" class="slide">
+                <div class="flex flex-col items-center justify-center text-center py-16">
+                    <h2 class="text-4xl font-extrabold text-blue-800 mb-4 tracking-tight">Module 3: Security Controls</h2>
+                    <p class="text-2xl font-semibold text-gray-600">The safeguards and countermeasures that protect systems.</p>
+                    <p class="text-lg text-gray-500 mt-4">Domains D1.3.1 - D1.3.3</p>
+                </div>
+            </div>
+
+            <!-- Slide 20: Types of Security Controls -->
+            <div id="slide-20" class="slide">
+                <div class="py-16">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Types of Controls</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><span class="font-bold">Physical:</span> Hardware, architecture, or actions that control the physical environment (e.g., badge readers, door locks).</li>
+                        <li><span class="font-bold">Technical (Logical):</span> Implemented by computer systems and networks (e.g., access control lists).</li>
+                        <li><span class="font-bold">Administrative (Managerial):</span> Directives and guidelines for people (e.g., acceptable use policies, training).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 21: Module 4: Governance -->
+            <div id="slide-21" class="slide">
+                <div class="flex flex-col items-center justify-center text-center py-16">
+                    <h2 class="text-4xl font-extrabold text-blue-800 mb-4 tracking-tight">Module 4: Governance</h2>
+                    <p class="text-2xl font-semibold text-gray-600">Understanding the governance hierarchy.</p>
+                    <p class="text-lg text-gray-500 mt-4">Domains D1.5.1 - D1.5.4</p>
+                </div>
+            </div>
+
+            <!-- Slide 22: Governance Hierarchy -->
+            <div id="slide-22" class="slide">
+                <div class="py-16 text-center">
+                    <h2 class="text-4xl font-semibold text-blue-800 mb-8">Governance Hierarchy</h2>
+                    <div class="flex flex-col items-center space-y-4">
+                        <div class="bg-gray-100 p-4 rounded-xl shadow-md w-full max-w-sm">
+                            <p class="font-bold text-2xl">Regulations</p>
+                            <p class="text-gray-600 text-sm">Laws from governments.</p>
+                        </div>
+                        <span class="text-gray-500 text-2xl">↓</span>
+                        <div class="bg-gray-100 p-4 rounded-xl shadow-md w-full max-w-sm">
+                            <p class="font-bold text-2xl">Standards</p>
+                            <p class="text-gray-600 text-sm">Frameworks to introduce policies.</p>
+                        </div>
+                        <span class="text-gray-500 text-2xl">↓</span>
+                        <div class="bg-gray-100 p-4 rounded-xl shadow-md w-full max-w-sm">
+                            <p class="font-bold text-2xl">Policies</p>
+                            <p class="text-gray-600 text-sm">Guidance from management.</p>
+                        </div>
+                        <span class="text-gray-500 text-2xl">↓</span>
+                        <div class="bg-gray-100 p-4 rounded-xl shadow-md w-full max-w-sm">
+                            <p class="font-bold text-2xl">Procedures</p>
+                            <p class="text-gray-600 text-sm">Detailed steps to complete a task.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 23: Module 5: Code of Ethics -->
+            <div id="slide-23" class="slide">
+                <div class="flex flex-col items-center justify-center text-center py-16">
+                    <h2 class="text-4xl font-extrabold text-blue-800 mb-4 tracking-tight">Module 5: (ISC)² Code of Ethics</h2>
+                    <p class="text-2xl font-semibold text-gray-600">
+                        A final look at the professional standards and ethics.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex justify-between w-full mt-8">
+            <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                Previous
+            </button>
+            <div id="slide-counter" class="text-lg font-medium text-gray-500 flex items-center">
+                Slide 1 of 23
+            </div>
+            <button id="next-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Next
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            let currentSlideIndex = 0;
+
+            function updateSlide() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                updateSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+
+            // Initial setup
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
