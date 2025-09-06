@@ -42,7 +42,7 @@
                     <p class="text-2xl font-semibold text-gray-300">(9 Weeks)</p>
                     <div class="mt-12 p-8 dark-card rounded-2xl shadow-xl w-3/4">
                         <h2 class="text-3xl font-bold mb-4">🎯 Goal</h2>
-                        <p class="text-lg leading-relaxed">Prepare working professionals for the (ISC)² Certified in Cybersecurity (CC) exam while also equipping them with practical ethical hacking skills.</p>
+                        <p class="text-lg leading-relaxed">Prepare participants for the (ISC)² Certified in Cybersecurity (CC) exam while also equipping them with practical ethical hacking skills.</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <!-- Slide 2: About Us -->
             <div id="slide-2" class="slide">
                 <div class="py-16 text-center">
-                    <h2 class="text-4xl font-semibold text-blue-400 mb-6">About Us - Cyber4rall</h2>
+                    <h2 class="text-4xl font-semibold text-blue-400 mb-6">About Us</h2>
                     <p class="text-2xl font-semibold text-gray-300">Accessible Security, Global Impact.</p>
                     <div class="grid md:grid-cols-2 gap-12 mt-8">
                         <div class="dark-card rounded-2xl p-6 shadow-xl text-left">
@@ -64,7 +64,8 @@
                             <h3 class="text-2xl font-bold mb-2">Social Impact & Commitment</h3>
                             <ul class="list-disc list-inside space-y-2 text-gray-300">
                                 <li>Committed to promoting digital literacy and empowering underserved communities through partnerships.</li>
-                                <li><span class="font-bold">Our Commitment:</span> We are more than a company—it’s a movement.</li>
+                                <li><span class="font-bold">Our Commitment:</span> We are building a secure, aware, and resilient society across Africa and the globe.
+.</li>
                             </ul>
                         </div>
                     </div>
@@ -81,7 +82,7 @@
                             <ul class="list-disc list-inside space-y-2 text-gray-300">
                                 <li>Basic computer literacy is required.</li>
                                 <li>Familiarity with networking concepts (IP addresses, TCP/IP, DNS) is helpful but not mandatory.</li>
-                                <li>No prior cybersecurity experience required—this bootcamp is beginner-friendly but intensive.</li>
+                                <li>No prior cybersecurity experience required, this bootcamp is beginner-friendly but intensive.</li>
                             </ul>
                         </div>
                         <div class="dark-card rounded-2xl p-6 shadow-xl">
@@ -224,9 +225,9 @@
             <div id="slide-9" class="slide">
                 <div class="flex flex-col items-center justify-center text-center py-16">
                     <h2 class="text-4xl font-semibold text-blue-400 mb-6">Your Journey Starts Now</h2>
-                    <p class="text-lg text-gray-300 max-w-2xl leading-relaxed">The digital world needs its protectors. By completing this bootcamp, you won't just learn skills—you'll join a community of cyber guardians ready to face the future of security. We're excited to see what you'll achieve.</p>
+                    <p class="text-lg text-gray-300 max-w-2xl leading-relaxed">The digital world needs its protectors. By completing this bootcamp, you won't just learn skills, you'll join a community of cyber guardians ready to face the future of security. We're excited to see what you'll achieve.</p>
                     <div class="mt-8">
-                        <p class="text-gray-400 font-bold">-- Place Your Transparent Logo Here --</p>
+                        <p class="text-gray-400 font-bold">Let's go!</p>
                     </div>
                 </div>
             </div>
@@ -238,9 +239,9 @@
             <button id="prev-btn" class="bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
                 Previous
             </button>
-            <button id="next-section-btn" class="bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
-                Next Section
-            </button>
+            <a href="index.html" class="bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                Home
+            </a>
             <div id="slide-counter" class="text-lg font-medium text-gray-500 flex items-center">
                 Slide 1 of 9
             </div>
@@ -256,12 +257,8 @@
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
-            const nextSectionBtn = document.getElementById('next-section-btn');
             const slideCounter = document.getElementById('slide-counter');
             let currentSlideIndex = 0;
-
-            // Define the starting slide index for each section
-            const sectionStarts = [0, 2, 4, 6, 8];
 
             function updateSlide() {
                 slides.forEach((slide, index) => {
@@ -282,16 +279,6 @@
             prevBtn.addEventListener('click', () => {
                 currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
                 updateSlide();
-            });
-
-            nextSectionBtn.addEventListener('click', () => {
-                // Find the next section's starting slide index
-                const nextSectionIndex = sectionStarts.find(start => start > currentSlideIndex);
-
-                if (nextSectionIndex !== undefined) {
-                    currentSlideIndex = nextSectionIndex;
-                    updateSlide();
-                }
             });
 
             // Initial setup
