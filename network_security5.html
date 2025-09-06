@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Security Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            transition: background-color 0.5s;
+        }
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-color: #f0f4f8;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+        p, ul, li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        .text-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .navigation-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            background-color: #4c51bf;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .nav-btn:disabled {
+            background-color: #cbd5e0;
+            cursor: not-allowed;
+        }
+        .nav-btn:hover:enabled {
+            transform: translateY(-2px);
+            background-color: #5a63c6;
+        }
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #2d3748;
+            color: white;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+        .slide-content-wrapper {
+            max-width: 80%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            font-size: 1rem;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        th {
+            background-color: #4c51bf;
+            color: white;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-button">Home</a>
+
+    <!-- Slides -->
+    <!-- Slide 1: Title Slide -->
+    <div id="slide1" class="slide active">
+        <div class="slide-content-wrapper">
+            <h1 class="text-6xl font-extrabold text-blue-800 animate-pulse">Network Security Infrastructure</h1>
+            <p class="mt-4 text-2xl text-gray-700">Understanding Core Components and Strategies</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: On-Premises Data Centers -->
+    <div id="slide2" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">On-Premises Data Centers</h2>
+            <p>An on-premises data center is a facility owned and operated by an organization. It requires careful management of several physical aspects to ensure security and reliability.</p>
+            <ul class="list-disc text-left mx-auto mt-4">
+                <li>Power: Needs to be constant and consistent.</li>
+                <li>HVAC: Required for cooling high-density equipment.</li>
+                <li>Fire Suppression: Specialized systems (like gas-based) to prevent damage to electronics.</li>
+                <li>Redundancy: Designing systems with duplicate components and diverse power sources to prevent failures.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 3: Cloud Computing Introduction -->
+    <div id="slide3" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Cloud Computing</h2>
+            <p>Cloud computing provides on-demand access to a shared pool of configurable computing resources (networks, servers, storage, etc.). It offers several key characteristics:</p>
+            <ul class="list-disc text-left mx-auto mt-4">
+                <li>On-Demand Self-Service & Broad Network Access</li>
+                <li>Resource Pooling & Rapid Elasticity</li>
+                <li>Measured Service (pay-per-use)</li>
+                <li>Reduced costs and scalability</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 4: Cloud Service Models -->
+    <div id="slide4" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Cloud Service Models</h2>
+            <p>These models define the level of control and responsibility between the user and the cloud provider.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Description</th>
+                        <th>User Responsibility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Software as a Service (SaaS)</td>
+                        <td>Access to software applications over the internet (e.g., email, productivity tools).</td>
+                        <td>Minimal administration.</td>
+                    </tr>
+                    <tr>
+                        <td>Platform as a Service (PaaS)</td>
+                        <td>An environment for building and operating your own software (e.g., development tools).</td>
+                        <td>Managing applications and some configurations.</td>
+                    </tr>
+                    <tr>
+                        <td>Infrastructure as a Service (IaaS)</td>
+                        <td>Basic computing resources like servers, storage, and networking.</td>
+                        <td>Installing and maintaining operating systems and applications.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Slide 5: Cloud Deployment Models -->
+    <div id="slide5" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Cloud Deployment Models</h2>
+            <ul class="list-disc text-left mx-auto">
+                <li>Public Cloud: Shared resource open to the public.</li>
+                <li>Private Cloud: Developed for a single private organization.</li>
+                <li>Hybrid Cloud: Combines a public and private cloud.</li>
+                <li>Community Cloud: Developed for a specific community with shared interests.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6: Agreements & Managed Service Providers -->
+    <div id="slide6" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Key Agreements & Providers</h2>
+            <ul class="list-disc text-left mx-auto">
+                <li>Managed Service Provider (MSP): A company that manages IT assets for another company.</li>
+                <li>Service-Level Agreement (SLA): A legal contract that specifies the minimum level of service, availability, and security a cloud provider must deliver.</li>
+                <li>MOU/MOA: Agreements between organizations to share resources for business continuity and disaster recovery.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 7: Network Design Concepts -->
+    <div id="slide7" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Network Design Concepts</h2>
+            <ul class="list-disc text-left mx-auto">
+                <li>Network Segmentation: Controlling traffic among networked devices.</li>
+                <li>DMZ: A network area accessible to outside visitors, but isolated from the private network.</li>
+                <li>VLANs: Logically segmenting a network without changing its physical topology.</li>
+                <li>VPNs: A point-to-point communication tunnel over an untrusted network.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 8: Defense in Depth -->
+    <div id="slide8" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Defense in Depth</h2>
+            <p>This is a layered approach to security. The goal is to use multiple types of controls to prevent a single point of failure. Think of a castle with multiple layers of defense.</p>
+            <ul class="list-disc text-left mx-auto mt-4">
+                <li>Physical: Locks, walls, access control.</li>
+                <li>Perimeter: Gateway firewalls, secure DMZs.</li>
+                <li>Internal Network: IDS, IPS, internal firewalls.</li>
+                <li>Host: Antivirus, endpoint firewalls.</li>
+                <li>Application: Firewalls, data leak prevention.</li>
+                <li>Data: Encryption, access management.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 9: Zero Trust -->
+    <div id="slide9" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Zero Trust</h2>
+            <p>Zero Trust is an evolving design approach that assumes a network perimeter is not enough. It adds defenses at the user, asset, and data level, insisting that every process or action a user attempts must be authenticated and authorized. This is often achieved through microsegmentation.</p>
+        </div>
+    </div>
+
+    <!-- Slide 10: Network Access Control (NAC) -->
+    <div id="slide10" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Network Access Control (NAC)</h2>
+            <p>NAC is a concept for controlling access to a network. It ensures that all devices, whether from an employee or a guest, comply with an organization's security policies before they are allowed to connect. Noncompliant devices can be isolated or quarantined.</p>
+        </div>
+    </div>
+
+    <!-- Slide 11: Final Slide -->
+    <div id="slide11" class="slide">
+        <div class="slide-content-wrapper">
+            <h2 class="text-5xl font-extrabold text-blue-800">You're All Set!</h2>
+            <p class="mt-4 text-2xl text-gray-700">This concludes our overview of network security infrastructure.</p>
+            <p class="mt-4 text-2xl text-gray-700">Let me know if you would like to go into more detail on any of these topics.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <button id="prevBtn" class="nav-btn">Previous</button>
+        <button id="nextBtn" class="nav-btn">Next</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            updateButtons();
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
