@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Security and Protocols</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            transition: background-color 0.5s;
+        }
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-color: #f0f4f8;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+        p, ul, li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        .text-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .navigation-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            background-color: #4c51bf;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .nav-btn:disabled {
+            background-color: #cbd5e0;
+            cursor: not-allowed;
+        }
+        .nav-btn:hover:enabled {
+            transform: translateY(-2px);
+            background-color: #5a63c6;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .grid-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        .grid-item p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .grid-item ul {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #2d3748;
+            color: white;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+        .slide-content-wrapper {
+            max-width: 80%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            font-size: 1rem;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        th {
+            background-color: #4c51bf;
+            color: white;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-button">Home</a>
+
+    <!-- Slides -->
+    <!-- Slide 1: Title Slide -->
+    <div id="slide1" class="slide active">
+        <div class="slide-content-wrapper">
+            <h1 class="text-6xl font-extrabold text-blue-800 animate-pulse">Network Security and Protocols</h1>
+            <p class="mt-4 text-2xl text-gray-700">Understanding Ports, Protocols, and Wi-Fi</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: What is WiFi? -->
+    <div id="slide2" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">What is Wi-Fi?</h2>
+            
+            <p class="mt-4">Wi-Fi is a wireless networking technology that uses radio waves to provide high-speed internet and network access to devices like phones, laptops, and smart home devices. It works by sending signals from a wireless router or access point, which devices can pick up to connect to a larger network, such as the internet.</p>
+        </div>
+    </div>
+
+    <!-- Slide 3: Security of the Network -->
+    <div id="slide3" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Security of the Network</h2>
+            <p>The TCP/IP protocol stack has numerous vulnerabilities. Improperly implemented stacks can be vulnerable to various attacks like DoS/DDoS attacks, fragment attacks, oversized packet attacks, spoofing attacks, and man-in-the-middle attacks. TCP/IP is also subject to passive attacks through network monitoring or sniffing, which is the act of monitoring traffic to gain information about a network.</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: Ports and Protocols -->
+    <div id="slide4" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Ports and Protocols</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Physical Ports</h3>
+                    <p>These are the actual, tangible ports on a device like a router, switch, or computer where you plug in a network cable.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Logical Ports</h3>
+                    <p>Also called a socket, a logical port is a number that allows a single IP address to support multiple simultaneous communications. Each communication uses a different port number.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Port Categories -->
+    <div id="slide5" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Port Categories</h2>
+            <ul class="list-disc text-left mx-auto">
+                <li><strong>Well-known ports (0–1023):</strong> Used for common, core protocols like HTTP (port 80) and DNS (port 53).</li>
+                <li><strong>Registered ports (1024–49151):</strong> Associated with specific proprietary applications and vendors, like Microsoft SQL Server.</li>
+                <li><strong>Dynamic or private ports (49152–65535):</strong> These are used for temporary sessions and are released once the communication is over.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6: Insecure vs Secure Ports -->
+    <div id="slide6" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">Insecure vs. Secure Ports</h2>
+            <p>Some protocols transmit information in clear text, which is unencrypted and vulnerable to network sniffing. Secure alternatives use encryption to protect data in transit. Below are some examples.</p>
+            <table class="w-full mt-4 rounded-xl">
+                <thead>
+                    <tr>
+                        <th>Insecure Port</th>
+                        <th>Protocol</th>
+                        <th>Secure Alternative</th>
+                        <th>Protocol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>21</td>
+                        <td>FTP</td>
+                        <td>22</td>
+                        <td>SFTP</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Telnet</td>
+                        <td>22</td>
+                        <td>SSH</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>SMTP</td>
+                        <td>587</td>
+                        <td>SMTP with TLS</td>
+                    </tr>
+                    <tr>
+                        <td>80</td>
+                        <td>HTTP</td>
+                        <td>443</td>
+                        <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                        <td>143</td>
+                        <td>IMAP</td>
+                        <td>993</td>
+                        <td>IMAP over SSL/TLS</td>
+                    </tr>
+                    <tr>
+                        <td>389</td>
+                        <td>LDAP</td>
+                        <td>636</td>
+                        <td>LDAPS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Slide 7: TCP Handshake -->
+    <div id="slide7" class="slide">
+        <div class="text-section">
+            <h2 class="text-4xl font-bold">The TCP 3-Way Handshake</h2>
+            <p class="mt-4">TCP is a connection-oriented protocol that establishes a reliable connection before sending data. This is done through a "three-way handshake" consisting of three messages:</p>
+            <ul class="list-disc text-left mx-auto">
+                <li><strong>SYN (Synchronize):</strong> The client sends a SYN packet to the server to initiate a connection.</li>
+                <li><strong>SYN-ACK (Synchronize-Acknowledge):</strong> The server responds with a SYN-ACK packet, acknowledging the client's request and sending its own synchronization request.</li>
+                <li><strong>ACK (Acknowledge):</strong> The client sends an ACK packet to the server, acknowledging the server's request. The connection is now established.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 8: Final Slide -->
+    <div id="slide8" class="slide">
+        <div class="slide-content-wrapper">
+            <h2 class="text-5xl font-extrabold text-blue-800">That's All For Now!</h2>
+            <p class="mt-4 text-2xl text-gray-700">This concludes our look at network security, ports, and protocols.</p>
+            <p class="mt-4 text-2xl text-gray-700">Is there anything else I can help you with?</p>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <button id="prevBtn" class="nav-btn">Previous</button>
+        <button id="nextBtn" class="nav-btn">Next</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            updateButtons();
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
