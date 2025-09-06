@@ -30,6 +30,24 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
+    <!-- The fixed "Home" button that stays in the top-left corner -->
+    <button id="home-button" class="fixed top-4 left-4 z-50 bg-blue-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+        Home
+    </button>
+    <div id="message-box" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center p-4 z-[999] hidden">
+        <div class="bg-white rounded-xl p-8 max-w-sm w-full shadow-2xl transform transition-transform duration-300 ease-in-out scale-95 opacity-0" id="message-content">
+            <h3 class="text-2xl font-bold mb-4 text-center">Security Presentation</h3>
+            <p class="text-center text-gray-700 mb-6">
+                This button will return you to the first slide.
+            </p>
+            <div class="text-center">
+                <button id="close-button" class="bg-blue-600 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <!-- Presentation Container -->
     <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
         
@@ -220,7 +238,7 @@
                 <div class="py-16">
                     <h2 class="text-4xl font-semibold text-blue-800 mb-4">What is Risk?</h2>
                     <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                        A measure of the extent to which an entity is threatened by a potential circumstance or event. It is a combination of the **adverse impacts** that would arise and the **likelihood** of its occurrence.
+                        A measure of the extent to which an entity is threatened by a potential circumstance or event. It is a combination of the adverse impacts that would arise and the likelihood of its occurrence.
                     </p>
                     <p class="text-lg font-bold text-gray-800 mb-2">The Risk Matrix:</p>
                     <ul class="list-disc pl-8 text-lg text-gray-600 space-y-2">
@@ -375,7 +393,12 @@
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
+            const homeButton = document.getElementById('home-button');
             const slideCounter = document.getElementById('slide-counter');
+            const messageBox = document.getElementById('message-box');
+            const messageContent = document.getElementById('message-content');
+            const closeButton = document.getElementById('close-button');
+            
             let currentSlideIndex = 0;
 
             function updateSlide() {
@@ -389,6 +412,30 @@
                 slideCounter.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
             }
 
+            // Function to show the custom message box
+            const showMessage = () => {
+                messageBox.classList.remove('hidden');
+                setTimeout(() => {
+                    messageContent.classList.remove('scale-95', 'opacity-0');
+                    messageContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            };
+
+            // Function to hide the custom message box
+            const hideMessage = () => {
+                messageContent.classList.remove('scale-100', 'opacity-100');
+                messageContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 300);
+            };
+
+            homeButton.addEventListener('click', () => {
+                currentSlideIndex = 0;
+                updateSlide();
+                showMessage(); // Show message when home is clicked
+            });
+
             nextBtn.addEventListener('click', () => {
                 currentSlideIndex = (currentSlideIndex + 1) % slides.length;
                 updateSlide();
@@ -397,6 +444,14 @@
             prevBtn.addEventListener('click', () => {
                 currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
                 updateSlide();
+            });
+
+            closeButton.addEventListener('click', hideMessage);
+            messageBox.addEventListener('click', (e) => {
+                // Close the box if the user clicks the backdrop
+                if (e.target.id === 'message-box') {
+                    hideMessage();
+                }
             });
 
             // Initial setup
