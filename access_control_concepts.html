@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L3 Access Control Concepts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .slide {
+            transition: opacity 0.5s ease-in-out;
+            min-height: 500px;
+        }
+        .slide:not(.active) {
+            opacity: 0;
+            display: none;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+            list-style-position: outside;
+        }
+        ul li, ol li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Presentation Container -->
+    <div id="presentation-container" class="bg-white rounded-2xl shadow-xl max-w-4xl w-full p-8 flex flex-col items-center relative overflow-hidden text-gray-800">
+        
+        <!-- Slides -->
+        <div id="slides-container" class="relative w-full h-full">
+
+            <!-- Slide 1: Title and Introduction -->
+            <div id="slide-1" class="slide active">
+                <div class="py-16">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-2 tracking-tight">
+                        Access Control Concepts
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-semibold text-gray-600 mb-8">
+                        Limiting What's Available to Whom
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Access control involves <strong>limiting what objects can be available to what subjects according to what rules</strong>.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Access controls are not just about restricting access to information systems and data, but also about <strong>allowing access</strong>. It is about granting the appropriate level of access to authorized personnel and processes and denying access to unauthorized functions or individuals.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 2: The Three Elements of Access -->
+            <div id="slide-2" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">The Three Elements of Access</h2>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Subjects</strong>: any entity that requests access to our assets. The entity requesting access may be a user, a client, a process or a program, for example. A subject is the initiator of a request for service; therefore, a subject is referred to as “active.”</p>
+                        </li>
+                        <li>
+                            <p><strong>Objects</strong>: represent the assets or resources that subjects seek to access. These can be data, systems, physical spaces like offices, or any other resource that holds value to the organization. </p>
+                        </li>
+                        <li>
+                            <p><strong>Rules</strong>: form the foundation of the access control framework by defining the conditions under which access is granted or denied to objects. These rules establish the criteria and parameters that govern the access permissions and restrictions within the organization's environment.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 3: Defense in Depth -->
+            <div id="slide-3" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Defense in Depth</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <strong>Defense in depth describes an information security strategy that integrates people, technology and operations capabilities to establish variable barriers across multiple layers and missions of the organization.</strong>
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        It applies multiple countermeasures in a layered fashion to fulfill security objectives. Defense in depth should be implemented to prevent or deter a cyberattack, but it cannot guarantee that an attack will not occur.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        An example of defense in depth is requiring both a username and password to log in, followed by a code sent to your phone for verification.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Principle of Least Privilege -->
+            <div id="slide-4" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Principle of Least Privilege</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        The Principle of Least Privilege is a standard of permitting only minimum access necessary for users or programs to fulfill their function.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        To preserve the confidentiality of information, <strong>we use privileged access management</strong>, <strong>which is based on the principle of least privilege</strong>. <strong>That means each user is granted access only to the items they need and nothing further</strong>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 5: Privileged Accounts -->
+            <div id="slide-5" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Privileged Accounts</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">What they are and who uses them</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Privileged accounts are those with permissions beyond those of normal users, such as managers and administrators. Broadly speaking, these accounts have <strong>elevated privileges</strong>.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        They are used by many different classes of users, including:
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-2">
+                        <li><strong>Systems administrators</strong></li>
+                        <li><strong>Help desk or IT support staff</strong></li>
+                        <li><strong>Security analysts</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 6: Segregation of Duties -->
+            <div id="slide-6" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Segregation of Duties</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <strong>Segregation of duties is based on the security practice that no one person should control an entire high-risk transaction from start to finish.</strong> 
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        <strong>Segregation of duties breaks the transaction into separate parts and requires a different person to execute each part of the transaction.</strong> For example, one employee may submit an invoice for payment, but it must be approved by a manager before being paid.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 7: How Users Are Provisioned -->
+            <div id="slide-7" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">How Users Are Provisioned</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Other situations that call for provisioning new user accounts or changing privileges include:
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li><strong>A new employee:</strong> The hiring manager sends a request to the security administrator to create a new user ID with appropriate access levels.</li>
+                        <li><strong>Change of position:</strong> An employee's permissions and access rights might change as defined by the new role, and any access no longer needed is removed.</li>
+                        <li><strong>Separation of employment:</strong> When employees leave the company, their accounts must be disabled after the termination date. It is recommended that accounts be disabled for a period before they are deleted to preserve the integrity of any audit trails.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 8: Physical Access Controls -->
+            <div id="slide-8" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 2: Physical Access Controls</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">What Are Physical Security Controls?</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Physical access controls are items you can physically touch, which include physical mechanisms deployed to prevent, monitor, or detect direct contact with systems or areas within a facility.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Examples include <strong>security guards</strong>, <strong>fences</strong>, <strong>motion detectors</strong>, <strong>locked doors/gates</strong>, <strong>badges</strong>, and <strong>alarms</strong>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 9: Types of Physical Access Controls -->
+            <div id="slide-9" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Types of Physical Controls</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Badges & Environmental Design</h3>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Badge Systems and Gate Entry:</strong> Often done with technologies such as <strong>turnstiles</strong> and remotely or system-controlled door locks. The badge is compared against a verified database, and if authenticated, the system allows the person to pass through.</p>
+                        </li>
+                        <li>
+                            <p><strong>Environmental Design:</strong> Crime Prevention through Environmental Design (CPTED) uses passive design elements like architectural and circulation flow methods to create safer workspaces and reduce the likelihood of crime.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 10: Biometrics -->
+            <div id="slide-10" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Biometrics</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Biometrics uses characteristics unique to the individual seeking access to authenticate a user’s identity. Biometrics takes two primary forms:
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Physiological systems</strong>: measure characteristics of a person such as a <strong>fingerprint</strong>, <strong>iris scan</strong>, <strong>retinal scan</strong>, or <strong>palm scan</strong>. </p>
+                        </li>
+                        <li>
+                            <p><strong>Behavioral systems</strong>: measure how a person acts by measuring <strong>voiceprints</strong>, <strong>signature dynamics</strong>, and <strong>keystroke dynamics</strong>. 
+
+[Image of fingerprint scan]
+ 
+
+[Image of an eye iris]
+ </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 11: Physical Monitoring -->
+            <div id="slide-11" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Physical Monitoring</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Cameras & Logs</h3>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Cameras</strong>: A flexible method of surveillance and monitoring. They can be a deterrent to criminal activity and can provide evidence after an event.</p>
+                        </li>
+                        <li>
+                            <p><strong>Logs</strong>: A record of events that have occurred. Physical security logs are essential to support business requirements and may be needed to prove compliance with regulations and assist in a forensic investigation.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 12: Security Guards & Alarms -->
+            <div id="slide-12" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Physical Monitoring (Cont.)</h2>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Guards & Alarms</h3>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-4">
+                        <li>
+                            <p><strong>Security Guards</strong>: An effective physical security control that can discourage a person from masquerading as someone else or following closely on the heels of another to gain access. </p>
+                        </li>
+                        <li>
+                            <p><strong>Alarm Systems</strong>: Designed to alert appropriate personnel when a door or window is opened unexpectedly. Examples include <strong>fire alarms</strong> and <strong>panic buttons</strong>. </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Slide 13: Logical Access Controls -->
+            <div id="slide-13" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Module 3: Logical Access Controls</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Whereas physical access controls are tangible methods, logical access controls are electronic methods that limit someone from getting access to systems, and sometimes even to tangible assets or areas.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Types of logical access controls include <strong>passwords</strong>, <strong>biometrics</strong> implemented on a system, and <strong>badge/token readers</strong> connected to a system.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 14: Discretionary Access Control (DAC) -->
+            <div id="slide-14" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Discretionary Access Control (DAC)</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Discretionary access control (DAC) is a specific type of access control policy that is <strong>enforced over all subjects and objects in an information system</strong>. In DAC, the policy specifies that <strong>a subject who has been granted access to information can do one or more of the following</strong>:
+                    </p>
+                    <ul class="list-disc pl-8 text-lg text-gray-700 space-y-2">
+                        <li><strong>Pass the information to other subjects or objects.</strong></li>
+                        <li><strong>Grant its privileges to other subjects.</strong></li>
+                        <li><strong>Change security attributes on subjects, objects, information systems or system components.</strong></li>
+                    </ul>
+                    <p class="text-lg text-gray-700 leading-relaxed mt-4">
+                        <strong>Most information systems in the world are DAC systems.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 15: Mandatory Access Control (MAC) -->
+            <div id="slide-15" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Mandatory Access Control (MAC)</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        A mandatory access control (MAC) policy is one that is <strong>uniformly enforced across all subjects and objects within the boundary of an information system</strong>. In simplest terms, <strong>this means that only properly designated security administrators, as trusted subjects, can modify any of the security rules</strong>.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Although MAC sounds very similar to DAC, <strong>the primary difference is who can control access</strong>. With Mandatory Access Control, <strong>it is mandatory for security administrators to assign access rights or permissions</strong>; <strong>with Discretionary Access Control, it is up to the object owner’s discretion</strong>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Slide 16: Role-Based Access Control (RBAC) -->
+            <div id="slide-16" class="slide">
+                <div class="py-16">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4">Role-Based Access Control (RBAC)</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Role-based access control (RBAC), as the name suggests, sets up user permissions based on roles. Each role represents users with similar or identical permissions.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Monitoring these role-based permissions is important, because if you expand one person’s permissions for a specific reason—say, a junior worker’s permissions might be expanded so they can temporarily act as the department manager—but you forget to change their permissions back, this can lead to <strong>privilege creep</strong> or <strong>permissions creep</strong>.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex justify-between w-full mt-8">
+            <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                Previous
+            </button>
+            <div id="slide-counter" class="text-lg font-medium text-gray-500 flex items-center">
+                Slide 1 of 16
+            </div>
+            <button id="next-btn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-full shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Next
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            let currentSlideIndex = 0;
+
+            function updateSlide() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                updateSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+
+            // Initial setup
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
